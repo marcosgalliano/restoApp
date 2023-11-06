@@ -6,13 +6,24 @@ const modifyPedidoController = async (data) => {
   const foundPedido = await Pedido.findByPk(id);
 
   if (!foundPedido) {
-    return new Error("no se encontro el pedido");
+    return new Error("No se encontró el pedido");
   }
 
-  foundPedido.name = name;
-  foundPedido.tableNumber = tableNumber;
-  foundPedido.pedidoStatus = pedidoStatus;
-  foundPedido.items = items;
+  if (name !== undefined) {
+    foundPedido.name = name;
+  }
+
+  if (tableNumber !== undefined) {
+    foundPedido.tableNumber = tableNumber;
+  }
+
+  if (pedidoStatus !== undefined) {
+    foundPedido.pedidoStatus = pedidoStatus;
+  }
+
+  if (items !== undefined) {
+    foundPedido.items = items;
+  }
 
   await foundPedido.save();
 

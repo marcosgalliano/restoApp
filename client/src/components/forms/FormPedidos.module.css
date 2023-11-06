@@ -1,0 +1,87 @@
+.FormPedidosDiv {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+/* BOTONES DE FILTROS */
+
+.buttonFilter {
+    padding: 7px;
+    width: 40%;
+    background-color: #0f2c59;
+    color: white;
+    border: none;
+    border-radius: 70px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.activeButton {
+    padding: 7px;
+    width: 40%;
+    background-color: #dac0a3;
+    color: #0f2c59;
+    border: none;
+    border-radius: 70px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* INPUTS */
+
+.inputSearchMesaDiv {
+    display: flex;
+    gap: 15px;
+}
+
+.inputSearchMesaDiv input {
+    padding: 5px 10px 5px 10px;
+    border: none;
+    font-size: 16px;
+    background-color: white;
+    outline: none;
+    border-radius: 70px;
+}
+
+.inputSearchMesaDiv button {
+    padding: 7px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: #dac0a3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+.inputSearchNombreDiv {
+    display: flex;
+    gap: 15px;
+}
+
+.inputSearchNombreDiv input {
+    padding: 5px 10px 5px 10px;
+    border: none;
+    font-size: 16px;
+    background-color: white;
+    outline: none;
+    border-radius: 70px;
+}
+
+.inputSearchNombreDiv button{
+    padding: 7px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: #dac0a3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}

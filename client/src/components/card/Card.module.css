@@ -1,0 +1,51 @@
+/* Items ocultos (mobile) */
+
+.divItems {
+    display: none;
+}
+
+.cardDiv {
+    width: 44%;
+    height: 170px;
+    background-color: #dac0a3;
+    display: grid;
+    grid-template-areas:
+        "name table"
+        "price price"
+        "status status";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 60% 20%;
+    text-align: center;
+    padding: 5px;
+    color: #0f2c59;
+}
+
+.name {
+    grid-area: name;
+    margin: auto;
+}
+
+.table {
+    grid-area: table;
+    margin: auto;
+}
+
+.price {
+    grid-area: price;
+    margin: auto;
+}
+
+.pendiente {
+    grid-area: status;
+    margin: auto;
+}
+
+.enMesa {
+    grid-area: status;
+    margin: auto;
+}
+
+.pagado {
+    grid-area: status;
+    margin: auto;
+}

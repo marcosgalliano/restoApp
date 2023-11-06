@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
       },
       pedidoStatus: {
         type: DataTypes.STRING,
-        defaultValue: "En Proceso",
+        defaultValue: "Pendiente",
         allowNull: false,
       },
       items: {

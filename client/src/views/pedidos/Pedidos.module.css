@@ -1,0 +1,13 @@
+.PedidosViewDiv{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 25px;
+}

@@ -6,9 +6,10 @@ const getPedidos = async (req, res) => {
     const allPedidos = await getAllPedidosController();
 
     if (name) {
-      const filteredResults = allPedidos.filter(
-        (pedido) => pedido.name.toLowerCase() == name.toLowerCase()
+      const filteredResults = allPedidos.filter((pedido) =>
+        pedido.name.toLowerCase().includes(name.toLowerCase())
       );
+
       res.status(200).json(filteredResults);
     } else if (table) {
       const filteredResults = allPedidos.filter(

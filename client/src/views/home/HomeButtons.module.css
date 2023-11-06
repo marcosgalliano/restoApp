@@ -1,0 +1,23 @@
+.divHomeButtons{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 500px;
+}
+
+.divHomeButtons button{
+    padding: 7px;
+    border: none;
+    background-color: #0f2c59;
+    color: white;
+    width: 100%;
+    border-radius: 70px;
+    font-size: 28px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.divHomeButtons a{
+    width: 71%;
+}
