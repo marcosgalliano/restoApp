@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { getPedidos, getPlatos } from "./redux/actions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://restoapp-production.up.railway.app/";
 
 function App() {
   const dispatch = useDispatch();
