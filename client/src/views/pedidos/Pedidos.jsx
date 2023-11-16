@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Card from "../../components/card/Card";
+import { getPedidos } from "../../redux/actions";
 
 const PedidosView = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const PedidosView = () => {
   const [itemsToDisplay, setItemsToDisplay] = useState([]);
 
   useEffect(() => {
+    dispatch(getPedidos());
     if (searchMesa) {
       if (filters.byPendientes) {
         const items = searchedMesa.filter(
@@ -85,7 +87,15 @@ const PedidosView = () => {
 
       setItemsToDisplay(items);
     }
-  }, [filters, dispatch, pedidos, searchedMesa, searchMesa, searchName, searchedName]);
+  }, [
+    filters,
+    dispatch,
+    pedidos,
+    searchedMesa,
+    searchMesa,
+    searchName,
+    searchedName,
+  ]);
   return (
     <div className={style.PedidosViewDiv}>
       <FormPedidos />

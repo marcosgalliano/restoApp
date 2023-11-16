@@ -19,6 +19,10 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      bebida: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
     },
     { timestamps: false }
   );

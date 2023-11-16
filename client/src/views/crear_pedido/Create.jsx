@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import style from "./Create.module.css";
 import { useSelector } from "react-redux";
+import { getPlatos } from "../../redux/actions";
+import { useDispatch } from "react-redux";
+import React from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router-dom";
 
 const CreatePedido = () => {
   const platos = useSelector((state) => state.platos);
@@ -18,6 +24,8 @@ const CreatePedido = () => {
     inputName: true,
     inputMesa: true,
   });
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     if (platos && platos.length > 0) {
@@ -34,6 +42,10 @@ const CreatePedido = () => {
       });
     }
   }, [platos]);
+
+  useEffect(() => {
+    dispatch(getPlatos());
+  }, []);
 
   useEffect(() => {
     if (nameP === "") {
@@ -164,7 +176,30 @@ const CreatePedido = () => {
     try {
       const pedidoReq = await axios.post("/pedidos", info);
 
-      console.log(pedidoReq);
+      toast.info("💾 Pedido Enviado", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        onClose: () => {
+          history.push("/pedidos");
+        },
+      });
+
+      setTable("");
+      setNameP("");
+      setInputs([platos[0].id]);
+      const platoSeleccionado = platos.find(
+        (plato) => plato.id === platos[0].id
+      );
+      const nuevoItems = [{ ...platoSeleccionado, cantidad: 1 }];
+      setItem(nuevoItems);
+
+      return pedidoReq;
     } catch (error) {
       console.log(error);
     }
@@ -198,6 +233,7 @@ const CreatePedido = () => {
               inputmode="numeric"
               placeholder="Nro. Mesa"
               name="inputMesa"
+              value={table}
               onChange={handleInputChangeTable}
             />
             {errors.inputMesa === true ? (
@@ -254,9 +290,25 @@ const CreatePedido = () => {
         ) : null}
         <h2>$ {totalPedido}</h2>
       </div>
-      <button onClick={() => postPedido(pedido)} disabled={hasErrors} className={style.buttonSubmit}>
+      <button
+        onClick={() => postPedido(pedido)}
+        disabled={hasErrors}
+        className={style.buttonSubmit}
+      >
         Enviar Pedido
       </button>
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

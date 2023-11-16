@@ -1,0 +1,53 @@
+.divEditPlato {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.inputError {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(255, 233, 233);
+    border: 1px solid rgb(255, 170, 170);
+}
+
+.inputError:focus {
+    outline: none;
+}
+
+.inputOk {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(241, 255, 241);
+    border: 1px solid rgb(172, 255, 172);
+}
+
+.inputOk:focus {
+    outline: none;
+}
+
+.buttonSubmit {
+    padding: 5px 18px 5px 18px;
+    background-color: #eadbc8;
+    border: 1px solid black;
+    border-radius: 70px;
+    font-size: 17px;
+}
+
+.divEditPlato label{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+}
+
+.divEditPlato label input{
+    height: 18px;
+    width: 18px;
+}

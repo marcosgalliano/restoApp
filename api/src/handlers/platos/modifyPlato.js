@@ -2,9 +2,9 @@ const modifyPlatoController = require("../../controllers/platos/modifyPlatoContr
 
 const modifyPlato = async (req, res) => {
   const { id } = req.params;
-  const { name, price } = req.body;
+  const { name, price, bebida } = req.body;
   try {
-    const modifiedPlato = await modifyPlatoController({ id, name, price });
+    const modifiedPlato = await modifyPlatoController({ id, name, price, bebida });
     res.status(200).json(modifiedPlato);
   } catch (error) {
     res.status(404).json({ error: error.message });
