@@ -1,7 +1,8 @@
 import style from "./Card.module.css";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
-  const { name, tableNumber, pedidoStatus, items } = props;
+  const { name, tableNumber, pedidoStatus, items, id } = props;
 
   // Función para calcular el total del pedido
   const calculateTotal = () => {
@@ -20,7 +21,9 @@ const Card = (props) => {
 
   return (
     <div className={style.cardDiv}>
-      <h3 className={style.name}>{name}</h3>
+      <Link to={`detailPedido/${id}`}>
+        <h3 className={style.name}>{name}</h3>
+      </Link>
       <h3 className={style.table}>{tableNumber}</h3>
       {items.map((item, index) => {
         return (
@@ -38,7 +41,7 @@ const Card = (props) => {
             ? style.pendiente
             : pedidoStatus === "En Mesa"
             ? style.enMesa
-            : pedidoStatus ==="Pagado"
+            : pedidoStatus === "Pagado"
             ? style.pagado
             : style.status
         }

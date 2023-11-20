@@ -1,0 +1,82 @@
+.divDetailPedido {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.containerDetaiPedido {
+    background-color: #eadbc8;
+    border: 1px solid grey;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 13px;
+    gap: 50px;
+}
+
+/* COMPONENTS OF PEDIDO */
+
+.name {
+    width: 40%;
+    font-size: 30px;
+}
+
+.tableNumber {
+    width: 40%;
+    text-align: end;
+    font-size: 30px;
+}
+
+.ContainerDetailedItems {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.detailedItems {
+    display: flex;
+    justify-content: space-between;
+}
+
+.totalPedido {
+    width: 40%;
+}
+
+.pedidoStatus {
+    text-align: end;
+    width: 40%;
+}
+
+.pedidoStatusPT {
+    text-align: end;
+    width: 40%;
+    color: rgb(143, 93, 0);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.pedidoStatusM {
+    text-align: end;
+    width: 40%;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.pedidoStatusPG {
+    text-align: end;
+    width: 40%;
+    color: green;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.buttonSubmit{
+    padding: 5px 18px 5px 18px;
+    background-color: #eadbc8;
+    border: 1px solid black;
+    border-radius: 70px;
+    font-size: 17px;
+}

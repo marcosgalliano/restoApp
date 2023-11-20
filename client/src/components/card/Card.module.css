@@ -38,14 +38,17 @@
 .pendiente {
     grid-area: status;
     margin: auto;
+    color: rgb(143, 93, 0);
 }
 
 .enMesa {
     grid-area: status;
     margin: auto;
+    color: white;
 }
 
 .pagado {
     grid-area: status;
     margin: auto;
+    color: green;
 }

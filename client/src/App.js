@@ -4,7 +4,8 @@ import logo from "./assets/logito.png";
 import Home from "./views/home/HomeButtons";
 import CreatePedido from "./views/crear_pedido/Create";
 import CreateMenu from "./views/crear_plato/CreateMenu";
-import EditPlato from "./views/editar_pedido/EditPlato";
+import DetailPedido from "./views/detail_pedido/DetailPedido";
+import EditPlato from "./views/editar_plato/EditPlato";
 import Menu from "./views/Menu/Menu";
 import axios from "axios";
 import PedidosView from "./views/pedidos/Pedidos";
@@ -34,6 +35,7 @@ function App() {
       <Route path="/Menu" component={Menu} />
       <Route path="/agregarPlato" component={CreateMenu} />
       <Route path="/editarPlato/:id" component={EditPlato} />
+      <Route path="/detailPedido/:id" component={DetailPedido} />
     </div>
   );
 }
