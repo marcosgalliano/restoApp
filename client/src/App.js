@@ -13,18 +13,32 @@ import { useEffect } from "react";
 import { getPedidos, getPlatos } from "./redux/actions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 axios.defaults.baseURL = "https://restoapp-production.up.railway.app/";
+//https://restoapp-production.up.railway.app/
+//http://localhost:3001/
 
 function App() {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(getPedidos());
     dispatch(getPlatos());
   }, [dispatch]);
+
+  const handleClick = () => {
+    history.goBack();
+  };
+
   return (
     <div className="App">
       <div className="divContenedorLogo">
+        <button onClick={handleClick} className={location.pathname != "/" ? "buttonBackActive" : "disabledButtonBack"}>
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
         <Link to="/">
           <img src={logo} alt="logo" className="principalImage" />
         </Link>

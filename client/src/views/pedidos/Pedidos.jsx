@@ -90,7 +90,6 @@ const PedidosView = () => {
   }, [
     filters,
     dispatch,
-    pedidos,
     searchedMesa,
     searchMesa,
     searchName,
