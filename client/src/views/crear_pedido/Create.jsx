@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import style from "./Create.module.css";
 import { useSelector } from "react-redux";
-import { getPlatos } from "../../redux/actions";
+import { getPlatos, getPedidos } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import React from "react";
 import axios from "axios";
@@ -198,6 +198,8 @@ const CreatePedido = () => {
       );
       const nuevoItems = [{ ...platoSeleccionado, cantidad: 1 }];
       setItem(nuevoItems);
+
+      dispatch(getPedidos());
 
       return pedidoReq;
     } catch (error) {
