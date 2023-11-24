@@ -40,6 +40,14 @@
     font-size: 17px;
 }
 
+.buttonDelete{
+    padding: 5px 18px 5px 18px;
+    background-color: rgb(255, 178, 178);
+    border: 1px solid black;
+    border-radius: 70px;
+    font-size: 17px;
+}
+
 .divEditPlato label{
     display: flex;
     align-items: center;
@@ -50,4 +58,41 @@
 .divEditPlato label input{
     height: 18px;
     width: 18px;
+}
+
+.containerDeleteButtons{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MENU DESPLEGBALE */
+
+.idleDisplay{
+    display: none;
+}
+
+.activeDisplay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.activeDisplay button{
+    padding: 4px 8px 4px 8px;
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.activeDisplay button:first-of-type{
+    background-color: green;
+}
+
+.activeDisplay button:not(:first-of-type){
+    background-color: red;
 }

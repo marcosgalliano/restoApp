@@ -28,15 +28,36 @@ function App() {
     dispatch(getPedidos());
     dispatch(getPlatos());
   }, [dispatch]);
-
   const handleClick = () => {
-    history.goBack();
+    const path = location.pathname;
+
+    if (path.startsWith("/pedidos")) {
+      return history.push("/");
+    } else if (path.startsWith("/Menu")) {
+      return history.push("/");
+    } else if (path.startsWith("/crear_pedidos")) {
+      return history.push("/");
+    } else if (
+      path.startsWith("/agregarPlato") ||
+      path.startsWith("/editarPlato")
+    ) {
+      return history.push("/Menu");
+    } else if (path.startsWith("/detailPedido")) {
+      return history.push("/pedidos");
+    } else {
+      return history.push("/");
+    }
   };
 
   return (
     <div className="App">
       <div className="divContenedorLogo">
-        <button onClick={handleClick} className={location.pathname != "/" ? "buttonBackActive" : "disabledButtonBack"}>
+        <button
+          onClick={handleClick}
+          className={
+            location.pathname != "/" ? "buttonBackActive" : "disabledButtonBack"
+          }
+        >
           <ion-icon name="chevron-back-outline"></ion-icon>
         </button>
         <Link to="/">

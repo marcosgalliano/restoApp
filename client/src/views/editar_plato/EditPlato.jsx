@@ -21,6 +21,7 @@ const EditPlato = () => {
     name: true,
     price: true,
   });
+  const [displayButtons, setDisplayButtons] = useState(false);
 
   useEffect(async () => {
     try {
@@ -116,6 +117,30 @@ const EditPlato = () => {
     }
   };
 
+  const handleDeletePlato = async () => {
+    try {
+      const deletePlato = await axios.delete(`platos/${id}`);
+
+      toast.info("🗑️ Plato eliminado", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        onClose: () => {
+          history.push("/Menu");
+        },
+      });
+
+      return deletePlato;
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
     <div className={style.divEditPlato}>
       <input
@@ -149,8 +174,25 @@ const EditPlato = () => {
         onClick={handleSubmit}
         disabled={hasErrors}
       >
-        editar Plato
+        Editar Plato
       </button>
+      <div className={style.containerDeleteButtons}>
+        <button
+          className={style.buttonDelete}
+          onClick={() => setDisplayButtons(!displayButtons)}
+          disabled={displayButtons === true}
+        >
+          Eliminar plato
+        </button>
+        <div
+          className={
+            displayButtons === true ? style.activeDisplay : style.idleDisplay
+          }
+        >
+          <button onClick={handleDeletePlato}>Confirmar</button>
+          <button onClick={() => setDisplayButtons(false)}>Cancelar</button>
+        </div>
+      </div>
       <ToastContainer
         position="top-right"
         autoClose={1000}
