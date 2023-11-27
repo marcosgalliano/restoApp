@@ -1,5 +1,5 @@
 import style from "./DetailPedido.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -75,7 +75,9 @@ const DetailPedido = () => {
       ) : (
         <h1>Cargando...</h1>
       )}
-      <button className={style.buttonSubmit}>Editar Pedido</button>
+      <Link to={`/editarPedido/${id}`}>
+        <button className={style.buttonSubmit}>Editar Pedido</button>
+      </Link>
     </div>
   );
 };

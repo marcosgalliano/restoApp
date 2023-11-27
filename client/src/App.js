@@ -6,6 +6,7 @@ import CreatePedido from "./views/crear_pedido/Create";
 import CreateMenu from "./views/crear_plato/CreateMenu";
 import DetailPedido from "./views/detail_pedido/DetailPedido";
 import EditPlato from "./views/editar_plato/EditPlato";
+import EditPedido from "./views/editar_pedido/EditPedido";
 import Menu from "./views/Menu/Menu";
 import axios from "axios";
 import PedidosView from "./views/pedidos/Pedidos";
@@ -15,7 +16,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-axios.defaults.baseURL = "https://restoapp-production.up.railway.app/";
+axios.defaults.baseURL = "http://localhost:3001/";
 //https://restoapp-production.up.railway.app/
 //http://localhost:3001/
 
@@ -44,6 +45,8 @@ function App() {
       return history.push("/Menu");
     } else if (path.startsWith("/detailPedido")) {
       return history.push("/pedidos");
+    } else if (path.startsWith("/editarPedido")) {
+      return history.push("/pedidos");
     } else {
       return history.push("/");
     }
@@ -71,6 +74,7 @@ function App() {
       <Route path="/agregarPlato" component={CreateMenu} />
       <Route path="/editarPlato/:id" component={EditPlato} />
       <Route path="/detailPedido/:id" component={DetailPedido} />
+      <Route path="/editarPedido/:id" component={EditPedido} />
     </div>
   );
 }

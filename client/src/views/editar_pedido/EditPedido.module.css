@@ -1,0 +1,114 @@
+.crearPedidoViewDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.divCrearPedido{
+    background-color: #eadbc8;
+    padding: 10px;
+    width: 95%;
+}
+
+.divCrearPedido h2{
+    margin-left: auto;
+    width: 30%;
+}
+
+.containerPlato{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.containerPlato select{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+}
+
+.containerPlato select:focus{
+    outline: none;
+}
+
+.buttonCantidad{
+    background-color: transparent;
+    border: none;
+    font-size: 35px;
+}
+
+.buttonDelete{
+    background-color: transparent;
+    border: none;
+    font-size: 21px;
+}
+
+.divCantidad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.buttonAddInput{
+    background-color: transparent;
+    padding: 3px 7px 3px 7px;
+    font-size: 24px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+/* INPUTS NAME Y MESA */
+
+.divInputsNameYmesa{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.inputNameAndTable{
+    display: flex;
+}
+
+.inputNameAndTable input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 4px;
+    font-size: 21px;
+}
+
+.inputNameAndTable input:focus{
+    outline: none;
+}
+
+.inputNameAndTable:first-of-type input{
+    width: 140px;
+}
+
+.inputNameAndTable:not(:first-of-type) input{
+    width: 110px;
+}
+
+/* ERRORES */
+
+.errorP{
+    color: red;
+    font-size: 14px;
+}
+
+/* BUTTON SUBMIT */
+
+.buttonSubmit{
+    padding: 5px 18px 5px 18px;
+    background-color: #eadbc8;
+    border: 1px solid black;
+    border-radius: 70px;
+    margin-top: 30px;
+    font-size: 17px;
+}
