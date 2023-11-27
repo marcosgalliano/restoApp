@@ -16,7 +16,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://restoapp-production.up.railway.app/";
 //https://restoapp-production.up.railway.app/
 //http://localhost:3001/
 
