@@ -44,7 +44,7 @@
 .enMesa {
     grid-area: status;
     margin: auto;
-    color: white;
+    color: rgb(0, 111, 185)
 }
 
 .pagado {

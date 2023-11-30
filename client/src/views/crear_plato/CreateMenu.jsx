@@ -23,9 +23,7 @@ const CreateMenu = () => {
 
   const history = useHistory();
 
-  useEffect(() => {
-    console.log(newPlato);
-  }, [newPlato]);
+
 
   useEffect(() => {
     if (newName === "") {
@@ -130,7 +128,7 @@ const CreateMenu = () => {
       <button
         className={style.buttonSubmit}
         onClick={submitFunc}
-        disabled={hasErrors}
+        disabled={hasErrors} 
       >
         Crear Plato
       </button>

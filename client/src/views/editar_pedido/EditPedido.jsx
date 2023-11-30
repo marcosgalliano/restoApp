@@ -38,7 +38,7 @@ const EditPedido = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const objetoEncontrado = pedidos.find((obj) => obj.id == id);
+        const objetoEncontrado = pedidos.find((obj) => obj.id == id); 
 
         if (objetoEncontrado) {
           setNameP(objetoEncontrado.name);
@@ -59,6 +59,7 @@ const EditPedido = () => {
 
           setInputs(itemsGuardados.map((i) => i.id));
           setoriginalPedidoStatus(objetoEncontrado.pedidoStatus);
+          setpedidoStatusChange(objetoEncontrado.pedidoStatus)
           setPedido({
             name: objetoEncontrado.name,
             tableNumber: objetoEncontrado.tableNumber,
@@ -87,7 +88,6 @@ const EditPedido = () => {
     }
     setTotal(totall);
 
-    console.log(pedido);
   }, [item, pedido]);
 
   useEffect(() => {
@@ -117,6 +117,7 @@ const EditPedido = () => {
       name: nameP,
       tableNumber: table,
       items: nuevoItems,
+      pedidoStatus: pedidoStatusChange,
     });
   };
 
@@ -132,6 +133,7 @@ const EditPedido = () => {
       name: nameP,
       tableNumber: table,
       items: nuevosItems,
+      pedidoStatus: pedidoStatusChange,
     });
   };
 
@@ -149,6 +151,7 @@ const EditPedido = () => {
       name: nameP,
       tableNumber: table,
       items: nuevoItems,
+      pedidoStatus: pedidoStatusChange, 
     });
   };
 
@@ -173,6 +176,7 @@ const EditPedido = () => {
       name: nameP,
       tableNumber: table,
       items: nuevosItems,
+      pedidoStatus: pedidoStatusChange,
     });
   };
 
@@ -185,6 +189,7 @@ const EditPedido = () => {
         name: nameP,
         tableNumber: table,
         items: nuevosItems,
+        pedidoStatus: pedidoStatusChange,
       });
     }
   };
@@ -197,6 +202,7 @@ const EditPedido = () => {
       name: updatedName,
       tableNumber: table,
       items: item,
+      pedidoStatus: pedidoStatusChange,
     });
   };
 
@@ -208,6 +214,7 @@ const EditPedido = () => {
       name: nameP,
       tableNumber: updatedTable,
       items: item,
+      pedidoStatus: pedidoStatusChange,
     });
   };
 
@@ -227,24 +234,14 @@ const EditPedido = () => {
         progress: undefined,
         theme: "light",
         onClose: () => {
-          history.push("/pedidos");
+          history.push(`/detailPedido/${id}`);
+          dispatch(getPedidos());
         },
       });
 
-      setTable("");
-      setNameP("");
-      setInputs([platos[0].id]);
-      const platoSeleccionado = platos.find(
-        (plato) => plato.id === platos[0].id
-      );
-      const nuevoItems = [{ ...platoSeleccionado, cantidad: 1 }];
-      setItem(nuevoItems);
-
-      dispatch(getPedidos());
-
       return pedidoReq;
     } catch (error) {
-      console.log(error);
+      alert(error.message)
     }
   };
 
@@ -273,7 +270,7 @@ const EditPedido = () => {
           <div className={style.inputNameAndTable}>
             <input
               type="number"
-              inputmode="numeric"
+              inputMode="numeric"
               placeholder="Nro. Mesa"
               name="inputMesa"
               value={table}
@@ -331,29 +328,37 @@ const EditPedido = () => {
             +
           </button>
         ) : null}
-        <h2>$ {total}</h2>
+        <div className={style.divTotalAndStatusContainer}>
+          <h2>$ {total}</h2>
+          <select onChange={(e) => handleSelectStatus(e)}>
+            {originalPedidoStatus === "Pendiente" ? (
+              <>
+                <option value={originalPedidoStatus}>
+                  {originalPedidoStatus}
+                </option>
+                <option value="En Mesa">En Mesa</option>
+                <option value="Pagado">Pagado</option>
+              </>
+            ) : originalPedidoStatus === "En Mesa" ? (
+              <>
+                <option value={originalPedidoStatus}>
+                  {originalPedidoStatus}
+                </option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Pagado">Pagado</option>
+              </>
+            ) : (
+              <>
+                <option value={originalPedidoStatus}>
+                  {originalPedidoStatus}
+                </option>
+                <option value="En Mesa">En Mesa</option>
+                <option value="Pendiente">Pendiente</option>
+              </>
+            )}
+          </select>
+        </div>
       </div>
-      <select onChange={(e) => handleSelectStatus(e)}>
-        {originalPedidoStatus === "Pendiente" ? (
-          <>
-            <option value={originalPedidoStatus}>{originalPedidoStatus}</option>
-            <option value="En Mesa">En Mesa</option>
-            <option value="Pagado">Pagado</option>
-          </>
-        ) : originalPedidoStatus === "En Mesa" ? (
-          <>
-            <option value={originalPedidoStatus}>{originalPedidoStatus}</option>
-            <option value="Pendiente">Pendiente</option>
-            <option value="Pagado">Pagado</option>
-          </>
-        ) : (
-          <>
-            <option value={originalPedidoStatus}>{originalPedidoStatus}</option>
-            <option value="En Mesa">En Mesa</option>
-            <option value="Pendiente">Pendiente</option>
-          </>
-        )}
-      </select>
       <button
         onClick={() => editPedido(pedido)}
         disabled={hasErrors}

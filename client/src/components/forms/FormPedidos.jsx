@@ -72,7 +72,7 @@ const FormPedidos = () => {
       <div className={style.inputSearchMesaDiv}>
         <input
           type="number"
-          inputmode="numeric"
+          inputMode="numeric"
           placeholder="Por Mesa"
           onChange={handleChange}
           value={searchMesaInput}

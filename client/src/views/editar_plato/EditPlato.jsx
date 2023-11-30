@@ -9,13 +9,13 @@ import { useHistory } from "react-router-dom";
 const EditPlato = () => {
   const params = useParams();
   const id = params.id;
-  const [platoName, setPlatoName] = useState(null);
-  const [platoPrice, setPlatoPrice] = useState(null);
-  const [isBebida, setIsBebida] = useState(null);
+  const [platoName, setPlatoName] = useState("");
+  const [platoPrice, setPlatoPrice] = useState("");
+  const [isBebida, setIsBebida] = useState(false); 
   const [newPlato, setNewPlato] = useState({
     name: "",
     price: "",
-    bebida: null,
+    bebida: false,
   });
   const [errors, setErrors] = useState({
     name: true,

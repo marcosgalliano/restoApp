@@ -16,9 +16,8 @@ const DetailPedido = () => {
         const objetoEncontrado = pedidos.find((obj) => obj.id == id);
 
         setItem(objetoEncontrado);
-        console.log(objetoEncontrado);
       } catch (error) {
-        console.error("Error al obtener el objeto:", error);
+        alert("Error al obtener el objeto:", error);
       }
     };
 
@@ -48,9 +47,9 @@ const DetailPedido = () => {
           <h2 className={style.name}>{item.name}</h2>
           <h2 className={style.tableNumber}>{item.tableNumber}</h2>
           <div className={style.ContainerDetailedItems}>
-            {item.items.map((i) => {
+            {item.items.map((i, index) => {
               return (
-                <div className={style.detailedItems}>
+                <div className={style.detailedItems} key={index}>
                   <h3>{i.name}</h3>
                   <h3>x {i.cantidad}</h3>
                 </div>

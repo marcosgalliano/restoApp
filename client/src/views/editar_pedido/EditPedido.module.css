@@ -13,11 +13,6 @@
     width: 95%;
 }
 
-.divCrearPedido h2{
-    margin-left: auto;
-    width: 30%;
-}
-
 .containerPlato{
     display: flex;
     justify-content: space-between;
@@ -111,4 +106,24 @@
     border-radius: 70px;
     margin-top: 30px;
     font-size: 17px;
+}
+
+/* TOTAL AND STATUS DIV */
+
+.divTotalAndStatusContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.divTotalAndStatusContainer select{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+}
+
+.divTotalAndStatusContainer select:focus{
+    outline: none;
 }

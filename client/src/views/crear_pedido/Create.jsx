@@ -232,7 +232,7 @@ const CreatePedido = () => {
           <div className={style.inputNameAndTable}>
             <input
               type="number"
-              inputmode="numeric"
+              inputMode="numeric"
               placeholder="Nro. Mesa"
               name="inputMesa"
               value={table}
